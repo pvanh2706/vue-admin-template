@@ -1,0 +1,47 @@
+/* Element Plus Dark Mode - Ghi đè CSS Variables */
+/* File này phải được import SAU file element-plus dark css-vars.css */
+/* Màu sắc được đồng bộ với theme dark của Tailwind trong dự án:
+   - Màu nền body: dark:bg-gray-900 = #101828
+   - Màu nền card: dark:bg-white/[0.03] = rgba(255, 255, 255, 0.03)
+   - Màu viền: dark:border-gray-800 = #1d2939
+   - Màu chữ: dark:text-white/90 = rgba(255, 255, 255, 0.9)
+   - Màu chữ phụ: dark:text-gray-400 = #98a2b3
+*/
+
+html.dark {
+  /* Các biến CSS cho bảng - đồng bộ với theme dark của Tailwind */
+  --el-table-tr-bg-color: transparent !important;
+  --el-table-bg-color: transparent !important;
+  --el-table-header-bg-color: rgba(255, 255, 255, 0.05) !important;
+  --el-table-row-hover-bg-color: rgba(70, 95, 255, 0.08) !important;
+  --el-table-current-row-bg-color: rgba(70, 95, 255, 0.12) !important;
+  --el-table-border-color: #1d2939 !important;
+  --el-table-text-color: #98a2b3 !important;
+  --el-table-header-text-color: rgba(255, 255, 255, 0.9) !important;
+  --el-table-fixed-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.36) !important;
+  --el-table-expanded-cell-bg-color: transparent !important;
+  
+  /* Các màu chung của Element Plus để đồng bộ với theme dự án */
+  --el-bg-color: #101828 !important;
+  --el-bg-color-page: #101828 !important;
+  --el-bg-color-overlay: #1d2939 !important;
+  --el-fill-color-blank: transparent !important;
+  --el-border-color: #1d2939 !important;
+  --el-border-color-light: #1d2939 !important;
+  --el-border-color-lighter: rgba(255, 255, 255, 0.1) !important;
+  --el-text-color-primary: rgba(255, 255, 255, 0.9) !important;
+  --el-text-color-regular: #98a2b3 !important;
+}
+
+/* Ghi đè CSS trực tiếp cho hover bảng - khi CSS variables không hoạt động */
+html.dark .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: rgba(70, 95, 255, 0.08) !important;
+}
+
+html.dark .el-table__body tr.current-row > td.el-table__cell {
+  background-color: rgba(70, 95, 255, 0.12) !important;
+}
+
+html.dark .el-table__body tr.hover-row > td.el-table__cell {
+  background-color: rgba(70, 95, 255, 0.08) !important;
+}
