@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6"
+    class="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/3 sm:px-6 sm:pt-6"
   >
     <div class="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
       <div class="w-full">
@@ -35,7 +35,7 @@
           <flat-pickr
             v-model="date"
             :config="flatpickrConfig"
-            class="pl-3 sm:pl-9 dark:bg-dark-900 h-10 w-10 sm:w-40 rounded-lg border border-gray-200 bg-white text-transparent sm:text-theme-sm sm:text-gray-800 shadow-theme-xs placeholder:text-transparent sm:placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-white/[0.03] dark:text-transparent sm:dark:text-gray-400 dark:placeholder:text-transparent sm:dark:placeholder:text-gray-400 dark:focus:border-brand-800"
+            class="pl-3 sm:pl-9 dark:bg-dark-900 h-10 w-10 sm:w-40 rounded-lg border border-gray-200 bg-white text-transparent sm:text-theme-sm sm:text-gray-800 shadow-theme-xs placeholder:text-transparent sm:placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-white/3 dark:text-transparent sm:dark:text-gray-400 dark:placeholder:text-transparent sm:dark:placeholder:text-gray-400 dark:focus:border-brand-800"
             placeholder="Select Date"
           />
           <span
@@ -61,8 +61,8 @@
       </div>
     </div>
     <div class="max-w-full overflow-x-auto custom-scrollbar">
-      <div id="chartThree" class="-ml-4 min-w-[1000px] xl:min-w-full pl-2">
-        <VueApexCharts type="area" height="310" :options="chartOptions" :series="series" />
+      <div id="chartThree" class="-ml-4 min-w-250 xl:min-w-full pl-2">
+        <div class="h-77.5"></div>
       </div>
     </div>
   </div>
@@ -86,105 +86,6 @@ const flatpickrConfig = {
   dateFormat: 'M j',
   defaultDate: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
 }
-import VueApexCharts from 'vue3-apexcharts'
-
-const series = ref([
-  {
-    name: 'Sales',
-    data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
-  },
-  {
-    name: 'Revenue',
-    data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
-  },
-])
-
-const chartOptions = ref({
-  legend: {
-    show: false,
-    position: 'top',
-    horizontalAlign: 'left',
-  },
-  colors: ['#465FFF', '#9CB9FF'],
-  chart: {
-    fontFamily: 'Outfit, sans-serif',
-    type: 'area',
-    toolbar: {
-      show: false,
-    },
-  },
-  fill: {
-    gradient: {
-      enabled: true,
-      opacityFrom: 0.55,
-      opacityTo: 0,
-    },
-  },
-  stroke: {
-    curve: 'straight',
-    width: [2, 2],
-  },
-  markers: {
-    size: 0,
-  },
-  labels: {
-    show: false,
-    position: 'top',
-  },
-  grid: {
-    xaxis: {
-      lines: {
-        show: false,
-      },
-    },
-    yaxis: {
-      lines: {
-        show: true,
-      },
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  tooltip: {
-    x: {
-      format: 'dd MMM yyyy',
-    },
-  },
-  xaxis: {
-    type: 'category',
-    categories: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
-    axisBorder: {
-      show: false,
-    },
-    axisTicks: {
-      show: false,
-    },
-    tooltip: {
-      enabled: false,
-    },
-  },
-  yaxis: {
-    title: {
-      style: {
-        fontSize: '0px',
-      },
-    },
-  },
-})
 </script>
 
 <style scoped>
